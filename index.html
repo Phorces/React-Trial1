@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>My react list</title>
+</head>
+<body>
+    
+    <h2>MY LIST</h2>
+    <input type="text">
+    <input type="button" value="add">
+    <div id="root"></div>
+        
+    
+    <script type="text/jsx">
+
+        const data = [
+             {id: 1, text: "Bread"},
+             {id: 2, text: "Waakye"},
+             {id: 3, text: "Jollof"}
+                    ];
+
+            
+            function Todo(props){
+                console.log(props)
+                return (
+                        <div className="container" type="text">
+                            <ul>
+                                <li>{props.text} <button>Delete</button></li>
+                            </ul>
+                    </div>
+                );
+            }
+        
+        let dolist = data.map(i => <Todo key={i.id} text={i.text} button={i.Delete}/>)
+        ReactDOM.render(
+            <React.StrictMode>
+                {dolist}
+            </React.StrictMode>, document.getElementById("root"));
+    </script>
+</body>
+</html>
